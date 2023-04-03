@@ -47,9 +47,9 @@ us do what we love!
 
 #### Notas propias
 
-##### Cap 6
+##### Cap 7
 
-[Constructor en Symfony y con una Fábrica](https://symfonycasts.com/es/screencast/design-patterns/builder-factory)
+[El patrón observador](https://symfonycasts.com/es/screencast/design-patterns/observer#play)
 
 #### Lo aprendido
 
@@ -101,3 +101,16 @@ Definición
 
   En otras palabras, creas una clase constructora que ayuda a construir otros objetos... y esos objetos pueden ser de
   diferentes clases o de la misma clase con diferentes datos.
+
+#### Patrón Factory
+
+Definición
+
+* Un Factory no es más que una clase cuyo trabajo es crear otra clase.
+* Es un patrón de creación.
+* El propósito del patrón de factory en general es centralizar la instanciación de objetos.
+* ¿Qué problemas puede resolver? Tienes un objeto que es difícil de
+  instanciar, se añade una clase constructora. Ayuda con el principio de
+  responsabilidad única. Ayuda a abstraer la lógica de creación de una clase de la clase
+  que utilizará ese objeto. Seguimos teniendo código para usar el constructor, pero la mayor parte de la
+  complejidad vive ahora en la clase constructora.

@@ -10,10 +10,16 @@ use App\AttackType\FireBoltType;
 use App\AttackType\MultiAttackType;
 use App\AttackType\TwoHandedSwordType;
 use App\Builder\CharacterBuilder;
+use App\Builder\CharacterBuilderFactory;
 use App\Character\Character;
 
 class GameApplication
 {
+
+    public function __construct(private CharacterBuilderFactory $characterBuilderFactory)
+    {
+    }
+
     public function play(Character $player, Character $ai): FightResult
     {
         $player->rest();
@@ -103,7 +109,7 @@ class GameApplication
 
     private function createCharacterBuilder(): CharacterBuilder
     {
-        return new  CharacterBuilder();
+        return $this->characterBuilderFactory->createBuilder();
     }
 
 }
