@@ -47,9 +47,9 @@ us do what we love!
 
 #### Notas propias
 
-##### Cap 7
+##### Cap 8
 
-[El patrón observador](https://symfonycasts.com/es/screencast/design-patterns/observer#play)
+[La clase observadora](https://symfonycasts.com/es/screencast/design-patterns/observer-class#play)
 
 #### Lo aprendido
 
@@ -114,3 +114,11 @@ Definición
   responsabilidad única. Ayuda a abstraer la lógica de creación de una clase de la clase
   que utilizará ese objeto. Seguimos teniendo código para usar el constructor, pero la mayor parte de la
   complejidad vive ahora en la clase constructora.
+
+#### Patrón Observer
+
+Definición
+
+* El patrón observador define una dependencia de uno a muchos entre los objetos, de modo que cuando un objeto cambia
+  de estado, todos sus dependientes son notificados y se actualizan automáticamente.
+* El patrón observador permite que un grupo de objetos sea notificado por un objeto central cuando ocurre algo.

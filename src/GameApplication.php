@@ -2,21 +2,19 @@
 
 namespace App;
 
-use App\ArmorType\IceBlockType;
-use App\ArmorType\LeatherArmorType;
-use App\ArmorType\ShieldType;
-use App\AttackType\BowType;
-use App\AttackType\FireBoltType;
-use App\AttackType\MultiAttackType;
-use App\AttackType\TwoHandedSwordType;
 use App\Builder\CharacterBuilder;
 use App\Builder\CharacterBuilderFactory;
 use App\Character\Character;
+use App\Observer\GameObserverInterface;
+use RuntimeException;
 
 class GameApplication
 {
 
-    public function __construct(private CharacterBuilderFactory $characterBuilderFactory)
+    /** @var GameObserverInterface[] */
+    private array $observers = [];
+
+    public function __construct(private readonly CharacterBuilderFactory $characterBuilderFactory)
     {
     }
 
@@ -53,11 +51,11 @@ class GameApplication
     {
         return match (strtolower($character)) {
             'fighter' => $this->createCharacterBuilder()
-            ->setMaxHealth(90)
-            ->setBaseDamage(12)
-            ->setAttackType('sword')
-            ->setArmorType('shield')
-            ->buildCharacter(),
+                ->setMaxHealth(90)
+                ->setBaseDamage(12)
+                ->setAttackType('sword')
+                ->setArmorType('shield')
+                ->buildCharacter(),
 
             'archer' => $this->createCharacterBuilder()
                 ->setMaxHealth(80)
@@ -80,7 +78,7 @@ class GameApplication
                 ->setArmorType('shield')
                 ->buildCharacter(),
 
-            default => throw new \RuntimeException('Undefined Character'),
+            default => throw new RuntimeException('Undefined Character'),
         };
     }
 
@@ -94,10 +92,27 @@ class GameApplication
         ];
     }
 
+    public function subscribe(GameObserverInterface $observer): void
+    {
+        if (!in_array($observer, $this->observers, true)) {
+            $this->observers[] = $observer;
+        }
+    }
+
+    public function unSubscribe(GameObserverInterface $observer): void
+    {
+        $key = array_search($observer, $this->observers);
+        if ($key !== false) {
+            unset($this->observers[$key]);
+        }
+    }
+
     private function finishFightResult(FightResult $fightResult, Character $winner, Character $loser): FightResult
     {
         $fightResult->setWinner($winner);
         $fightResult->setLoser($loser);
+
+        $this->notify($fightResult);
 
         return $fightResult;
     }
@@ -110,6 +125,13 @@ class GameApplication
     private function createCharacterBuilder(): CharacterBuilder
     {
         return $this->characterBuilderFactory->createBuilder();
+    }
+
+    private function notify(FightResult $fightResult):void
+    {
+        foreach ($this->observers  as $observer){
+            $observer->cuandoTerminaPelea($fightResult);
+        }
     }
 
 }
