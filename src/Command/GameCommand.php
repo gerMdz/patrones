@@ -5,6 +5,8 @@ namespace App\Command;
 use App\Character\Character;
 use App\FightResult;
 use App\GameApplication;
+use App\Observer\ExpGanadaObserver;
+use App\Service\CalculoExperiencia;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -23,9 +25,16 @@ class GameCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        $experienciaObservador = new ExpGanadaObserver(
+            new CalculoExperiencia()
+        );
+
+        $this->game->subscribe($experienciaObservador);
+
+
         $io = new SymfonyStyle($input, $output);
 
-        $io->text('Welcome to the game where warriors fight against each other for honor and glory... and 🍕!');
+        $io->text('Bienvenido al juego donde los guerreros luchan entre sí por el honor, la gloria... y 🍕!');
 
         $characters = $this->game->getCharactersList();
         $characterChoice = $io->choice('Select your character', $characters);
@@ -90,6 +99,8 @@ class GameCommand extends Command
 
         $io->writeln('Total Rounds: ' . $fightResult->getRounds());
         $io->writeln('Damage dealt: ' . $fightResult->getDamageDealt());
+        $io->writeln('Experiencia:' . $player->obtenerExperiencia());
+        $io->writeln('Nivel final:' . $player->getLevel());
         $io->writeln('Damage received: ' . $fightResult->getDamageReceived());
         $io->writeln('Exhausted Turns: ' . $fightResult->getExhaustedTurns());
         $io->writeln('------------------------------');

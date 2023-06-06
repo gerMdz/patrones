@@ -49,7 +49,9 @@ us do what we love!
 
 ##### Cap 8
 
-[La clase observadora](https://symfonycasts.com/es/screencast/design-patterns/observer-class#play)
+[
+Observador dentro de Symfony + Beneficios
+](https://symfonycasts.com/es/screencast/design-patterns/observer-benefits#play)
 
 #### Lo aprendido
 
