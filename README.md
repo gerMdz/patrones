@@ -47,11 +47,9 @@ us do what we love!
 
 #### Notas propias
 
-##### Cap 8
+##### Cap 10
 
-[
-Observador dentro de Symfony + Beneficios
-](https://symfonycasts.com/es/screencast/design-patterns/observer-benefits#play)
+[Publicar-Suscribir (PubSub)](https://symfonycasts.com/es/screencast/design-patterns/pub-sub#play)
 
 #### Lo aprendido
 

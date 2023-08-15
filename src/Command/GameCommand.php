@@ -25,11 +25,7 @@ class GameCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $experienciaObservador = new ExpGanadaObserver(
-            new CalculoExperiencia()
-        );
 
-        $this->game->subscribe($experienciaObservador);
 
 
         $io = new SymfonyStyle($input, $output);
