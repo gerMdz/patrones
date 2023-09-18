@@ -47,9 +47,9 @@ us do what we love!
 
 #### Notas propias
 
-##### Cap 10
+##### Cap 12
 
-[Publicar-Suscribir (PubSub)](https://symfonycasts.com/es/screencast/design-patterns/pub-sub#play)
+[Decorador ](https://symfonycasts.com/es/screencast/design-patterns/decorator#play)
 
 #### Lo aprendido
 
