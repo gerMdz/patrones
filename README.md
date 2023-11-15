@@ -47,9 +47,9 @@ us do what we love!
 
 #### Notas propias
 
-##### Cap 12
+##### Cap 14
 
-[Decorador ](https://symfonycasts.com/es/screencast/design-patterns/decorator#play)
+[Decoración: Anular los servicios del núcleo AsDecorator ](https://symfonycasts.com/es/screencast/design-patterns/as-decorator#play)
 
 #### Lo aprendido
 

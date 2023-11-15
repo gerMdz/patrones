@@ -3,12 +3,12 @@
 namespace App\Observer;
 
 use App\FightResult;
-use App\Service\CalculoExperiencia;
+use App\Service\CalculoExperienciaInterface;
 
 class ExpGanadaObserver implements GameObserverInterface
 {
 
-    public function __construct(private readonly CalculoExperiencia $calculoExperiencia)
+    public function __construct(private readonly CalculoExperienciaInterface $calculoExperiencia)
     {
 
     }

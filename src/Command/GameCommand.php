@@ -9,6 +9,7 @@ use App\GameApplication;
 use App\Observer\ExpGanadaObserver;
 use App\Service\CalculoExperiencia;
 
+use App\Service\OutputtingExperienciaCalculo;
 use App\Subscriber\OutputFightStartingSubscriber;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;

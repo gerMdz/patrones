@@ -4,7 +4,7 @@ namespace App\Service;
 
 use App\Character\Character;
 
-class CalculoExperiencia
+class CalculoExperiencia implements CalculoExperienciaInterface
 {
     public function addExp(Character $ganador, int $nivelEnemigo): void
     {
