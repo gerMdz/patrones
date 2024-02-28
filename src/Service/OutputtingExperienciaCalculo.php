@@ -4,7 +4,9 @@ namespace App\Service;
 
 use App\Character\Character;
 use Symfony\Component\Console\Output\ConsoleOutput;
+use Symfony\Component\DependencyInjection\Attribute\AsDecorator;
 
+#[AsDecorator(CalculoExperienciaInterface::class)]
 class OutputtingExperienciaCalculo implements CalculoExperienciaInterface
 {
         public function __construct(

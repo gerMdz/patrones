@@ -27,9 +27,7 @@ services:
 #        calls:
 #            - subscribe: ['@App\Observer\ExpGanadaObserver']
 
-    App\Service\CalculoExperienciaInterface: '@App\Service\OutputtingExperienciaCalculo'
+    App\Service\CalculoExperienciaInterface: '@App\Service\CalculoExperiencia'
 
-    App\Service\OutputtingExperienciaCalculo:
-        arguments:
-            $innerCalculo: '@App\Service\CalculoExperiencia'
+
 
