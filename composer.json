@@ -15,7 +15,7 @@
         "symfony/framework-bundle": "6.1.*",
         "symfony/runtime": "6.4.*",
         "symfony/stopwatch": "^6.1",
-        "symfony/yaml": "6.1.*"
+        "symfony/yaml": "6.4.*"
     },
     "config": {
         "platform": {},
